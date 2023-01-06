@@ -1,0 +1,47 @@
+# -*- coding:utf-8 -*-
+# Sukurti funkcijas, kurios:
+# • Gražintų visų paduotų skaičių sumą (su *args argumentu)
+# • Gražintų paduoto skaičiaus šaknį (panaudoti math.sqrt())
+# • Gražintų paduoto sakinio simbolių kiekį (su len())
+# • Gražintų rezultatą, skaičių x padalinus iš y
+# Nustatyti standartinį logerį (logging) taip, kad jis:
+# • Saugotų pranešimus į norimą failą
+# • Saugotų INFO lygio žinutes
+# • Pranešimai turi būti tokiu formatu: data/laikas, lygis, žinutė
+# Kiekviena funkcija turi sukurti INFO lygio log pranešimą apie tai, ką atliko, pvz.
+#logging.info(f"Skaiciu {args} suma lygi:{sum(args)}")
+
+import math
+
+import logging
+logging.basicConfig(filename="uzduotis_15_1.log", level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
+def suma(*args):
+    logging.info(f"Skaiciu {args} suma lygi: {sum(args)}")
+    return sum(args)
+
+def saknis(x):
+    logging.info(f"Skaiciaus {x} saknis lygi {math.sqrt(x)}")
+    return math.sqrt(x)
+
+def simboliai(sakinys):
+    logging.info(f"Sakinio {sakinys} ilgis lygus {len(sakinys)} simboliu")
+    return len(sakinys)
+
+def dalyba(x, y):
+    logging.info(f"{x} padalinta is {y} lygu {x / y}")
+    return x / y
+
+print(f'ivestu argumentu suma:{suma(4, 5, 7, 8, 9, 9)}')
+print(f'kvadratine saknis is skaiciaus 49 lygi:{saknis(49)}')
+print(f'simboliu skaicius paduotame funkcijai stringe yra:{simboliai("Labas vakaras")}')
+print(f'dalyba paduotu argumentu i funkcija lygi:{dalyba(11, 5)}')
+
+
+#output
+ivestu argumentu suma:42
+kvadratine saknis is skaiciaus 49 lygi:7.0
+simboliu skaicius paduotame funkcijai stringe yra:13
+dalyba paduotu argumentu i funkcija lygi:2.2
+
+Process finished with exit code 0
