@@ -1,0 +1,48 @@
+# -*- coding:utf-8 -*-
+# Perdaryti 1 užduoties programą, kad:
+# • Į šaknies funkciją padavus string tipo argumetrą, į log failą būtų išsaugoma išimties klaida su norimu tekstu
+# • Į dalybos funkciją antrą argumentą padavus 0, į log failą būtų išsaugoma išimties klaida su norimu tekstu
+# Patarimas: panaudoti try/except/else, logging.exception()
+import math
+
+import logging
+logging.basicConfig(filename="uzduotis2.log", level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
+def suma(*args):
+    logging.info(f"Skaiciu {args} suma lygi: {sum(args)}")
+    return sum(args)
+
+def saknis(x):
+    try:
+        rezultatas = math.sqrt(x)
+    except TypeError:
+        logging.exception("Saknis gali buti traukiama tik is skaiciaus")
+    else:
+        logging.info(f"Skaiciaus {x} saknis lygi {rezultatas}")
+        return rezultatas
+
+def simboliai(sakinys):
+    logging.info(f"Sakinio {sakinys} ilgis lygus {len(sakinys)} simboliu")
+    return len(sakinys)
+
+def dalyba(x, y):
+    try:
+        rezultatas = x / y
+    except ZeroDivisionError:
+        logging.exception("Dalyba is nulio")
+    else:
+        logging.info(f"{x} padalinta is {y} lygu {rezultatas}")
+        return rezultatas
+
+
+print(f'paduotu i funkcija argumentu suma:{suma(4, 5, 7, 8, 9, 9)}')
+print(f'i funkcija saknis paduoto stringo reiksme:{saknis("Marius")}')
+print(f'simboliu skaicius padoto i funkcija stringo:{simboliai("Labas vakaras VISIEMS!!!")}')
+print(f'dalyba is nulio:{dalyba(10, 0)}')
+#output
+paduotu i funkcija argumentu suma:42
+i funkcija saknis paduoto stringo reiksme:None
+simboliu skaicius padoto i funkcija stringo:24
+dalyba is nulio:None
+
+Process finished with exit code 0
