@@ -1,0 +1,70 @@
+# -*- coding:utf-8 -*-
+# Perdaryti 2 užduoties programą, kad:
+# • Būtų sukurtas savo logeris, kuris fikstuotus visus anksčiau aprašytus pranešimus
+# • Sukurtas logeris ne tik išsaugotų pranešimus faile, bet ir atvaizduotų juos konsolėje
+import math
+import logging
+logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler('uzduotis3.log')
+logger.addHandler(file_handler)
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s')
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+logger.addHandler(stream_handler)
+
+def suma(*args):
+    logger.info(f"Skaiciu {args} suma lygi: {sum(args)}")
+    return sum(args)
+
+def saknis(x):
+    try:
+        rezultatas = math.sqrt(x)
+    except TypeError:
+        logger.exception("Saknis gali buti traukiama tik is skaiciaus")
+    else:
+        logger.info(f"Skaiciaus {x} saknis lygi {rezultatas}")
+        return rezultatas
+
+def simboliai(sakinys):
+    logger.info(f"Sakinio {sakinys} ilgis lygus {len(sakinys)} simboliu")
+    return len(sakinys)
+
+def dalyba(x, y):
+    try:
+        rezultatas = x / y
+    except ZeroDivisionError:
+        logger.exception("Dalyba is nulio")
+    else:
+        logger.info(f"{x} padalinta is {y} lygu {rezultatas}")
+        return rezultatas
+
+
+print(suma(4, 5, 7, 8, 9, 9))
+print(saknis("Marius"))
+print(simboliai("Labas vakaras"))
+print(dalyba(10, 0))
+
+#output
+42
+None
+13
+None
+2023-01-06 19:56:35,400:INFO:__main__:Skaiciu (4, 5, 7, 8, 9, 9) suma lygi: 42
+2023-01-06 19:56:35,400:ERROR:__main__:Saknis gali buti traukiama tik is skaiciaus
+Traceback (most recent call last):
+  File "C:\Users\<name user>\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_31.py", line 24, in saknis
+    rezultatas = math.sqrt(x)
+                 ^^^^^^^^^^^^
+TypeError: must be real number, not str
+2023-01-06 19:56:35,402:INFO:__main__:Sakinio Labas vakaras ilgis lygus 13 simboliu
+2023-01-06 19:56:35,402:ERROR:__main__:Dalyba is nulio
+Traceback (most recent call last):
+  File "C:\Users\<name user>\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_31.py", line 37, in dalyba
+    rezultatas = x / y
+                 ~~^~~
+ZeroDivisionError: division by zero
+
+Process finished with exit code 0
