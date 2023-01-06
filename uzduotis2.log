@@ -1,0 +1,28 @@
+2023-01-06 19:48:31,397:INFO:Skaiciu (4, 5, 7, 8, 9, 9) suma lygi: 42
+2023-01-06 19:48:31,397:ERROR:Saknis gali buti traukiama tik is skaiciaus
+Traceback (most recent call last):
+  File "C:\Users\Darius.Kacanauskas\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_30.py", line 17, in saknis
+    rezultatas = math.sqrt(x)
+                 ^^^^^^^^^^^^
+TypeError: must be real number, not str
+2023-01-06 19:48:31,400:INFO:Sakinio Labas vakaras VISIEMS!!! ilgis lygus 24 simboliu
+2023-01-06 19:48:31,400:ERROR:Dalyba is nulio
+Traceback (most recent call last):
+  File "C:\Users\Darius.Kacanauskas\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_30.py", line 30, in dalyba
+    rezultatas = x / y
+                 ~~^~~
+ZeroDivisionError: division by zero
+2023-01-06 19:51:44,601:INFO:Skaiciu (4, 5, 7, 8, 9, 9) suma lygi: 42
+2023-01-06 19:51:44,601:ERROR:Saknis gali buti traukiama tik is skaiciaus
+Traceback (most recent call last):
+  File "C:\Users\Darius.Kacanauskas\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_30.py", line 17, in saknis
+    rezultatas = math.sqrt(x)
+                 ^^^^^^^^^^^^
+TypeError: must be real number, not str
+2023-01-06 19:51:44,603:INFO:Sakinio Labas vakaras VISIEMS!!! ilgis lygus 24 simboliu
+2023-01-06 19:51:44,603:ERROR:Dalyba is nulio
+Traceback (most recent call last):
+  File "C:\Users\Darius.Kacanauskas\AppData\Roaming\JetBrains\PyCharmCE2022.2\scratches\scratch_30.py", line 30, in dalyba
+    rezultatas = x / y
+                 ~~^~~
+ZeroDivisionError: division by zero
