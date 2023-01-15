@@ -1,0 +1,1 @@
+Log date: 2023-01-15 19:34:31.776160 | Log name: Logger | Logged: isoriniai kintamieji yra 25 ir 78 
